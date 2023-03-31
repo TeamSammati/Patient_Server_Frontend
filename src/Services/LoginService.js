@@ -1,14 +1,14 @@
-import axios from "axios";
-import configURL from "../Configurations/configURL";
+// import axios from "axios";
+// import configURL from "../Configurations/configURL";
 
-const {loginURL} = configURL;
+// const {loginURL} = configURL;
 
 const login = async (loginCredentials) => {
-    const response = await axios.post(loginURL, loginCredentials)
-    console.log(response)
-    window.localStorage.setItem('BearerToken', JSON.stringify(response.data.token))
-    return response.data.patient
-    //return 1;
+    // const response = await axios.post(loginURL, loginCredentials)
+    // console.log(response)
+    // window.localStorage.setItem('BearerToken', JSON.stringify(response.data.token))
+    // return response.data.patient
+    return 1;
 }
 const exportObject = { login }
 export default exportObject

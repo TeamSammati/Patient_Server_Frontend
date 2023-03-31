@@ -28,13 +28,13 @@ const HospitalComponent = ({ hospitalRecords, index }) => {
         );
     }
     return (
-        <div>
+        <div className='RecordComponent'>
             {
                 (!expandHospitalComponent) ?
                     (
                         <div>
                             <IoMdArrowDroprightCircle onClick={() => { setExpandHospitalComponent(true) }} size={25} className='RecordsIcon' />
-                            <b className='RecordsTitle'>{hospitalRecords.hospitalId} - {hospitalRecords.hospitalName}</b>
+                            <b className='RecordsTitle'>Hospital : {hospitalRecords.hospitalId} - {hospitalRecords.hospitalName}</b>
                         </div>
                     ) :
                     (

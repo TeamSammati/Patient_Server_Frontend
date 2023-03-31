@@ -1,21 +1,21 @@
-import React, {useState, useEffect} from 'react'
-// import healthRecords from '../newHealthRecords.json'
+import React, { useState, useEffect } from 'react'
+//import healthRecords from '../newHealthRecords.json'
 import HospitalComponent from './HospitalComponent'
 import EHRRequestService from '../Services/EHRRequestService'
 import './Stylesheets/RecordsPage.css'
-const RecordsComponent = ({user}) => {
+const RecordsComponent = ({ user }) => {
     const [hospitalSearchValue, setHospitalSearchValue] = useState(parseInt(0))
     const [healthRecords, setHealthRecords] = useState([])
     useEffect(() => {
         async function fetchData() {
-          if (user) {
-            const data = await EHRRequestService.getMyData(user)
-            setHealthRecords(data)
-            console.log("Data Records: ", data)
-          }
+            if (user) {
+                const data = await EHRRequestService.getMyData(user)
+                setHealthRecords(data)
+                console.log("Data Records: ", data)
+            }
         }
         fetchData()
-      }, [])
+    }, [])
 
     const hospitalList = healthRecords.map((hospitalRecords, index) => {
         return {
@@ -40,8 +40,8 @@ const RecordsComponent = ({user}) => {
         );
     }
     console.log(healthRecords)
-  return (
-    <div className='RecordsPage'>
+    return (
+        <div className='RecordsPage'>
             <div className='RecordsPageTitle'>
                 Your Health Records, here !
             </div>
@@ -58,7 +58,7 @@ const RecordsComponent = ({user}) => {
                         <Options options={hospitalOptionList} />
                     </select>
                 </div>
-                
+
                 {
                     (healthRecords.length === 0) &&
                     <div className='RecordsPageMessage'>
@@ -70,9 +70,9 @@ const RecordsComponent = ({user}) => {
                     <div>
                         {healthRecords.filter((hospital) => { return (hospitalSearchValue === 0 || hospitalSearchValue === hospital.hospitalId) }).map((hospitalRecords, index) => (
                             <HospitalComponent
-                            key={index}
-                            index = {index}
-                            hospitalRecords={hospitalRecords}
+                                key={index}
+                                index={index}
+                                hospitalRecords={hospitalRecords}
                             />
                         ))
                         }
@@ -81,7 +81,7 @@ const RecordsComponent = ({user}) => {
 
             </div>
         </div>
-  )
+    )
 }
 
 export default RecordsComponent
