@@ -6,7 +6,7 @@ const {consentResponseURL} = configURL;
 const consentResponse = async (cr_response) => {
     let token = window.localStorage.getItem('BearerToken')
     token=token.substring(1,token.length-1);
-    const response = await axios.post(`${consentResponseURL}?crid=${cr_response.crid}&status=${cr_response.status}`, {
+    const response = await axios.post(`${consentResponseURL}?crid=${cr_response.crid}&status=${cr_response.status}`, null, {
         headers: {
         'Authorization': `Bearer ${token}`
         }
