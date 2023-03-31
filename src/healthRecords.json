@@ -1,0 +1,433 @@
+[
+    {
+        "data": [
+            {
+                "prescriptionId": 1,
+                "record": {
+                    "recordId": 1,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "hansal",
+                        "lastName": "dhanda",
+                        "mobileNumber": "1111111111",
+                        "registrationNumber": 3,
+                        "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                        "designation": null,
+                        "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                        "email": "hansal@gmail.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "username": "hansal@gmail.com",
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true
+                    },
+                    "visit": {
+                        "visitId": 1,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 1,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Sardi"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "hansal",
+                            "lastName": "dhanda",
+                            "mobileNumber": "1111111111",
+                            "registrationNumber": 3,
+                            "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                            "designation": null,
+                            "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                            "email": "hansal@gmail.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "username": "hansal@gmail.com",
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true
+                        },
+                        "visit_date": "2023-03-23T18:30:00.000+00:00"
+                    },
+                    "problem": "bahut sari",
+                    "treatment": "kuchh nhi"
+                },
+                "medicine": "Dolo",
+                "dosage": 3,
+                "dosage_timing": "sasa"
+            },
+            {
+                "prescriptionId": 2,
+                "record": {
+                    "recordId": 1,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "hansal",
+                        "lastName": "dhanda",
+                        "mobileNumber": "1111111111",
+                        "registrationNumber": 3,
+                        "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                        "designation": null,
+                        "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                        "email": "hansal@gmail.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "username": "hansal@gmail.com",
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true
+                    },
+                    "visit": {
+                        "visitId": 1,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 1,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Sardi"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "hansal",
+                            "lastName": "dhanda",
+                            "mobileNumber": "1111111111",
+                            "registrationNumber": 3,
+                            "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                            "designation": null,
+                            "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                            "email": "hansal@gmail.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "username": "hansal@gmail.com",
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true
+                        },
+                        "visit_date": "2023-03-23T18:30:00.000+00:00"
+                    },
+                    "problem": "bahut sari",
+                    "treatment": "kuchh nhi"
+                },
+                "medicine": "Doolo",
+                "dosage": 3,
+                "dosage_timing": "srasa"
+            },
+            {
+                "prescriptionId": 3,
+                "record": {
+                    "recordId": 4,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "hansal",
+                        "lastName": "dhanda",
+                        "mobileNumber": "1111111111",
+                        "registrationNumber": 3,
+                        "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                        "designation": null,
+                        "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                        "email": "hansal@gmail.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "username": "hansal@gmail.com",
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true
+                    },
+                    "visit": {
+                        "visitId": 3,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 2,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Fever"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "hansal",
+                            "lastName": "dhanda",
+                            "mobileNumber": "1111111111",
+                            "registrationNumber": 3,
+                            "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                            "designation": null,
+                            "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                            "email": "hansal@gmail.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "username": "hansal@gmail.com",
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true
+                        },
+                        "visit_date": "2023-03-23T18:30:00.000+00:00"
+                    },
+                    "problem": "bahut sari",
+                    "treatment": "kuchh nhi"
+                },
+                "medicine": "Dolo",
+                "dosage": 3,
+                "dosage_timing": "sasa"
+            }
+        ],
+        "hospitalId": 1,
+        "hospitalName": "Appolo"
+    },
+    {
+        "data": [
+            {
+                "prescriptionId": 1,
+                "record": {
+                    "recordId": 1,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "Soham",
+                        "lastName": "Babu",
+                        "mobileNumber": "902402042",
+                        "registrationNumber": 696969696,
+                        "registrationDate": "2023-03-24T12:37:33.000+00:00",
+                        "designation": null,
+                        "password": "1234",
+                        "email": "k@g.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true,
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "username": "k@g.com"
+                    },
+                    "visit": {
+                        "visitId": 1,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 1,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Sardi"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "Soham",
+                            "lastName": "Babu",
+                            "mobileNumber": "902402042",
+                            "registrationNumber": 696969696,
+                            "registrationDate": "2023-03-24T12:37:33.000+00:00",
+                            "designation": null,
+                            "password": "1234",
+                            "email": "k@g.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true,
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "username": "k@g.com"
+                        },
+                        "visit_date": "2023-03-23T18:30:00.000+00:00"
+                    },
+                    "problem": "bahut sari",
+                    "treatment": "kuchh nhi"
+                },
+                "medicine": "Dolo",
+                "dosage": 3,
+                "dosage_timing": "sasa"
+            },
+            {
+                "prescriptionId": 2,
+                "record": {
+                    "recordId": 1,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "Soham",
+                        "lastName": "Babu",
+                        "mobileNumber": "902402042",
+                        "registrationNumber": 696969696,
+                        "registrationDate": "2023-03-24T12:37:33.000+00:00",
+                        "designation": null,
+                        "password": "1234",
+                        "email": "k@g.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true,
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "username": "k@g.com"
+                    },
+                    "visit": {
+                        "visitId": 1,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 1,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Sardi"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "Soham",
+                            "lastName": "Babu",
+                            "mobileNumber": "902402042",
+                            "registrationNumber": 696969696,
+                            "registrationDate": "2023-03-24T12:37:33.000+00:00",
+                            "designation": null,
+                            "password": "1234",
+                            "email": "k@g.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true,
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "username": "k@g.com"
+                        },
+                        "visit_date": "2023-03-23T18:30:00.000+00:00"
+                    },
+                    "problem": "bahut sari",
+                    "treatment": "kuchh nhi"
+                },
+                "medicine": "Doolo",
+                "dosage": 3,
+                "dosage_timing": "srasa"
+            },{
+                "prescriptionId": 2,
+                "record": {
+                    "recordId": 2,
+                    "patientId": 1,
+                    "doctor": {
+                        "doctorId": 1,
+                        "firstName": "hansal",
+                        "lastName": "dhanda",
+                        "mobileNumber": "1111111111",
+                        "registrationNumber": 3,
+                        "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                        "designation": null,
+                        "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                        "email": "hansal@gmail.com",
+                        "role": "DOCTOR",
+                        "tokens": [],
+                        "enabled": true,
+                        "username": "hansal@gmail.com",
+                        "authorities": [
+                            {
+                                "authority": "DOCTOR"
+                            }
+                        ],
+                        "accountNonExpired": true,
+                        "accountNonLocked": true,
+                        "credentialsNonExpired": true
+                    },
+                    "visit": {
+                        "visitId": 2,
+                        "patientId": 1,
+                        "episode": {
+                            "episodeId": 1,
+                            "patientId": 1,
+                            "start_date": "2023-03-23T18:30:00.000+00:00",
+                            "end_date": null,
+                            "episode_type": "Sardi"
+                        },
+                        "doctor": {
+                            "doctorId": 1,
+                            "firstName": "hansal",
+                            "lastName": "dhanda",
+                            "mobileNumber": "1111111111",
+                            "registrationNumber": 3,
+                            "registrationDate": "2023-03-23T18:30:00.000+00:00",
+                            "designation": null,
+                            "password": "$2a$10$y4a6K/EMX36bl5TIh2jY5u64sH4m80JI9hN4G9T4l6lZ1xj6xpywe",
+                            "email": "hansal@gmail.com",
+                            "role": "DOCTOR",
+                            "tokens": [],
+                            "enabled": true,
+                            "username": "hansal@gmail.com",
+                            "authorities": [
+                                {
+                                    "authority": "DOCTOR"
+                                }
+                            ],
+                            "accountNonExpired": true,
+                            "accountNonLocked": true,
+                            "credentialsNonExpired": true
+                        },
+                        "visit_date": "2023-04-25T18:30:00.000+00:00"
+                    },
+                    "problem": "Head Ache",
+                    "treatment": "Therapy"
+                },
+                "medicine": "Periactin",
+                "dosage": 1,
+                "dosage_timing": "FN"
+            }
+        ],
+        "hospitalId": 2,
+        "hospitalName": "Kauvery"
+    }
+]
