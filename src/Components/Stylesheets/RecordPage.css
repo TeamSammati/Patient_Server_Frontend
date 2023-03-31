@@ -1,0 +1,24 @@
+.HospitalRecordsContainer{
+    margin: 10px 0px;
+    background-color: #d7ecf6b9;
+    padding: 12px 24px;
+    min-height: 100px;
+}
+.HospitalTitle{
+    /* margin-left: 5px; */
+    
+    margin-bottom: 10px;
+}
+.RecordPageMessage{
+    color: brown;
+}
+.FiltersContainer{
+    float: left;
+}
+.RecordsFilter{
+    float: left;
+    margin: 0px 5px;
+}
+/* .InputButton{
+    margin-top: 0px;
+} */
