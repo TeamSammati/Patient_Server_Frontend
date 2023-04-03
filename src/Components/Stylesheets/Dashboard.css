@@ -6,6 +6,7 @@
     margin: 10px 15px;
     padding: 12px 24px;
     border-radius: 6px;
+    min-height: 270px;
 }
 .DashboardContent{
     margin: 10px 15px;
@@ -48,4 +49,14 @@
 .ProfileQR{
     float: right;
     width: 20%;
+}
+.imgPatient{
+    width: 175px;
+    height: 185px;
+    border: 2px;
+    border-radius: 4px;
+    border-color: black;
+    border-width: 2px;
+    border-style: inset;
+    margin:auto;
 }

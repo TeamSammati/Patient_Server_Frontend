@@ -13,7 +13,7 @@ const Register = () => {
   const [address1, setAddress1] = useState('')
   const [pin, setPIN] = useState('')
   const [state, setState] = useState(0)
-  const [passPhoto, setPassPhoto] = useState(null)
+  const [passPhoto, setPassPhoto] = useState('')
   const [uid, setUid] = useState('')
   const [uidType, setUidType] = useState(0)
   const [uName, setUName] = useState('')
@@ -22,9 +22,24 @@ const Register = () => {
   const [clearCredentials, setClearCredentials] = useState(false);
   const [isOtpValidated, setIsOtpValidated] = useState(false);
   const [wantToValidate, setWantToValidate] = useState(false);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      const base64 = btoa(
+        new Uint8Array(reader.result)
+          .reduce((data, byte) => data + String.fromCharCode(byte), '')
+      );
+      setPassPhoto(`data:image/png;base64,${base64}`);
+    };
+
+    reader.readAsArrayBuffer(file);
+  };
   const handleSendOtp = () => {
     const genParam = {
-      phoneNumber : mobile
+      phoneNumber: mobile
     }
     setWantToValidate(true)
     sendOtpHandler(genParam)
@@ -35,7 +50,7 @@ const Register = () => {
       if (response) {
         alert("OTP Sent to your Mobile Number");
       }
-      else{
+      else {
         alert("Invalid Details! Try Again.");
       }
     }
@@ -45,8 +60,8 @@ const Register = () => {
   }
   const handleOtpSubmit = (enteredOtp) => {
     const validationParam = {
-      phoneNumber : mobile,
-      message : enteredOtp
+      phoneNumber: mobile,
+      message: enteredOtp
     }
     otpHandler(validationParam)
     //console.log('Entered OTP is : ', validationParam);
@@ -57,7 +72,7 @@ const Register = () => {
       if (response) {
         setIsOtpValidated(true);
       }
-      else{
+      else {
         alert("Invalid OTP! Try Again.");
         setClearCredentials(true);
       }
@@ -141,7 +156,7 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault()
     const registerContent = {
-      firstName: fname, lastName: lname, phoneNumber: mobile, userName: uName, gender: gender, email: email, UID_Number: uid, UID_type: uidType, state: state, address: address1, pinCode: pin, password: pwd, dob: dob
+      firstName: fname, lastName: lname, phoneNumber: mobile, userName: uName, gender: gender, email: email, uidNumber: uid, uidType: uidType, state: state, address: address1, pinCode: pin, password: pwd, DOB: dob, passPhoto: passPhoto
     }
     if (gender === 0 || state === 0 || uidType === 0) {
       alert("select All Fields and Try Again!");
@@ -243,7 +258,7 @@ const Register = () => {
                       wantToValidate ? (
                         <div>
                           <h5 className='info'>Please enter the OTP sent to your Mobile Number:</h5>
-                          <OtpValidationButtons onSubmit={handleOtpSubmit} clearCredentials={clearCredentials} setClearCredentials={setClearCredentials}/>
+                          <OtpValidationButtons onSubmit={handleOtpSubmit} clearCredentials={clearCredentials} setClearCredentials={setClearCredentials} />
                         </div>
                       ) : (
                         <div>
@@ -318,7 +333,7 @@ const Register = () => {
                   type='file'
                   className='InputText'
                   value={passPhoto}
-                  onChange={event => setPassPhoto(event.target.value)}
+                  onChange={handleImageChange}
                 />
               </div>
               <div className='RegisterCol'>
