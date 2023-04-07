@@ -1,29 +1,62 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Stylesheets/ConsentRequest.css'
 import consentResponseService from '../Services/ConsentResponseService'
 import swal from 'sweetalert';
-import ConsentPopup from './ConsentPopup'
-const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospitalName, doctorName, purpose }) => {
-    const [popUp, setPopUp] = useState(false);
-    const consentResponseHandler = async (cr_response) => {
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+// import healthRecords from '../newHealthRecords.json'
+import ConsentRecords from './ConsentRecords'
+const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospitalName, doctorName, purpose, user, healthRecords}) => {
+    const [open, setOpen] = useState(false);
+    const [otpValidation, setOtpValidation] = useState(false);
+    const consentResponseDenyHandler = async (cr_response) => {
         try {
-            const response = await consentResponseService.consentResponse(cr_response)
+            const response = await consentResponseService.consentResponseDeny(cr_response)
             if (response) {
-                alert("Consent Response Given!", response)
+                alert("Request Successfully Denied!", response)
+                //setOpen(false);
                 window.location.reload(true)
-
             }
         }
         catch (exception) {
-            console.log("Failed to give Consent response")
+            console.log("Failed to Deny Consent Request");
         }
     }
-
+    const consentResponseHandler = async (cr_response) => {
+        try {
+            const response = await consentResponseService.consentResponseAccept(cr_response)
+            console.log(cr_response);
+            if (response.status === 200) {
+                alert("Your consent is in Process, Please Enter OTP" + response);
+                setOtpValidation(true);
+                // setOpen(false);
+                //window.location.reload(true);
+            }
+        }
+        catch (exception) {
+            console.log("Failed to Accept Consent")
+        }
+    }
+    const consentValidationHandler = async (cr_response) => {
+        try {
+            const response = await consentResponseService.validateConsent(cr_response)
+            if(response === -99){
+                alert("Invalid OTP, Try Again");
+            }
+            else if(response) {
+                alert("Consent Given Successfully, Your Consent Id: " + response)
+                setOpen(false);
+                setOtpValidation(false);
+                window.location.reload(true)
+            }
+        }
+        catch (exception) {
+            alert("Invalid Details, Try Again");
+        }
+    }
     const handleConsentResponseAccept = (event) => {
         event.preventDefault()
-        const cr_response = {
-            crid: consentRequestId, status: 1
-        }
+        
         swal({
             title: "Are you sure to give Consent?",
             text: "Your Health Data is Accessible to the Requested Doctor.",
@@ -33,7 +66,7 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    setPopUp(true)
+                    setOpen(true)
                     //consentResponseHandler(cr_response)
                 } else {
                     swal("Yup !!! Safely Backtracked...");
@@ -56,7 +89,7 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    consentResponseHandler(cr_response)
+                    consentResponseDenyHandler(cr_response)
                 } else {
                     swal("Yup !!! Safely Backtracked...");
                 }
@@ -73,10 +106,16 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
             <td>{(purpose === null) ? "NA" : purpose}</td>
             <td>
                 <button type="button" className="btnAccept" onClick={handleConsentResponseAccept}>Accept &gt;&gt;</button>
-                <ConsentPopup trigger={popUp} closePopup={setPopUp}>
-                    <h4>Granular Consent</h4>
-                    <p>Tick your health records that can be viwed by Requested Doctor.</p>
-                </ConsentPopup>
+                <Modal open={open} onClose={() => setOpen(false)} setOpen={setOpen} closeOnOverlayClick={false}>
+                    <h4 style={{textAlign:"left", color: "navy"}}>Granular Consent</h4>
+                    <h5>Request: {consentRequestId} &ensp; &ensp; Doctor: {doctorId} - {doctorName}</h5>
+                    <p style={{fontStyle:"italic", fontFamily:"cursive"}}>(*) Tick your health records that can be viwed by Requested Doctor.</p>
+                    <ConsentRecords healthRecords={healthRecords} 
+                    consentResponseHandler={consentResponseHandler} user={user} consentRequestId={consentRequestId} setOpen={setOpen}
+                    setOtpValidation={setOtpValidation} otpValidation={otpValidation} consentValidationHandler={consentValidationHandler}
+                    doctorId={doctorId}
+                    />
+                </Modal>
             </td>
             <td>
                 <button type="button" className="btnReject" onClick={handleConsentResponseReject}>Deny &gt;&gt;</button>

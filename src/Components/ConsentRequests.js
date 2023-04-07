@@ -2,7 +2,7 @@ import React from 'react'
 import './Stylesheets/ConsentRequests.css'
 import ConsentRequest from './ConsentRequest'
 // import consentRequests from '../consentRequestsData.json';
-const ConsentRequests = ({ consentRequests}) => { // { consentRequests}
+const ConsentRequests = ({user, consentRequests, healthRecords}) => { // { consentRequests}
   return (
     <div className='ConsentRequestsPage'>
       <div className='ConsentRequestTitle'>
@@ -36,6 +36,8 @@ const ConsentRequests = ({ consentRequests}) => { // { consentRequests}
                     {...consentRequest}
                     index={index}
                     key={index}
+                    user={user}
+                    healthRecords={healthRecords}
                   />
                 ))
                 }

@@ -18,6 +18,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [user, setUser] = useState(null)
   const [consentRequests, setConsentRequests] = useState([])
+  const [healthRecords, setHealthRecords] = useState([])
   const notify = () => toast.success('💥 Great, Glad to See here!', {
     position: "top-center",
     autoClose: 5000,
@@ -77,9 +78,9 @@ function App() {
           {
             (user !== null) && <Route path="/" element={<Dashboard user={user} />} />
           }
-          <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} />} />
+          <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} user={user} healthRecords={healthRecords}/>} />
           {/* <Route path="/healthData" element={<RecordsPage healthRecords={healthRecords}/>} /> */}
-          <Route path="/records" element={<RecordsComponent user={user} />} />
+          <Route path="/records" element={<RecordsComponent user={user} setHealthRecordsParent={setHealthRecords}/>} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />

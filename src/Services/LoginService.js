@@ -8,7 +8,7 @@ const login = async (loginCredentials) => {
     console.log(response)
     window.localStorage.setItem('BearerToken', JSON.stringify(response.data.token))
     return response.data.patient
-    // return 1;
+    //return 1;
 }
 const exportObject = { login }
 export default exportObject

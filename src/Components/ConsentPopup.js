@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Stylesheets/ConsentPopup.css'
+import healthRecords from '../newHealthRecords.json'
+import ConsentRecords from './ConsentRecords'
 const Popup = (props) => {
     return (
     (props.trigger) ?
@@ -9,7 +11,7 @@ const Popup = (props) => {
 
             {props.children}
             <br/>
-            
+            <ConsentRecords healthRecords={healthRecords}/>
         </div>
     </div> :
     ""

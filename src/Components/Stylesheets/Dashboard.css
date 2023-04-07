@@ -1,5 +1,8 @@
+* {
+    box-sizing: border-box;
+  }
 .DashboardPage{
-    min-height: 430px;
+    min-height: 500px;
 }
 .DashboardMain{
     background-color: #dbdedf9a;
@@ -7,6 +10,8 @@
     padding: 12px 24px;
     border-radius: 6px;
     min-height: 270px;
+    overflow: auto;
+    /* display: block; */
 }
 .DashboardContent{
     margin: 10px 15px;
@@ -35,20 +40,28 @@
     margin-bottom: 10px;
     height: 175px;
     padding: 12px 24px;
+    display: grid;
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+    grid-auto-rows: auto;
+    grid-auto-flow: column;
 }
 .Prof-Col{
-    float: left;
+    /* float: left; */
     height: 200px;
+    margin: 0px 10px;
 }
 .ProfilePhoto{
-    width: 15%;
+    /* width: 15%; */
+    grid-column: 1;
 }
 .ProfileDetais{
-    width: 65%;
+    /* width: 65%; */
+    grid-column: 2;
 }
 .ProfileQR{
-    float: right;
-    width: 20%;
+    /* float: right; */
+    /* width: 20%; */
+    grid-column: 3;
 }
 .imgPatient{
     width: 175px;
@@ -59,4 +72,19 @@
     border-width: 2px;
     border-style: inset;
     margin:auto;
+}
+@media only screen and (max-width: 800px) {
+    .ProfileContent{
+        display: block;
+        height: 40%;
+    }
+    .DashboardMain{
+        overflow: unset;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    
+    .DashboardMain{
+        min-height: 350px;
+    }
 }

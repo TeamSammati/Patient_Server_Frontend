@@ -3,14 +3,15 @@ import React, { useState, useEffect } from 'react'
 import HospitalComponent from './HospitalComponent'
 import EHRRequestService from '../Services/EHRRequestService'
 import './Stylesheets/RecordsPage.css'
-const RecordsComponent = ({ user }) => {
+const RecordsComponent = ({ user, setHealthRecordsParent }) => {
     const [hospitalSearchValue, setHospitalSearchValue] = useState(parseInt(0))
     const [healthRecords, setHealthRecords] = useState([])
     useEffect(() => {
         async function fetchData() {
             if (user) {
                 const data = await EHRRequestService.getMyData(user)
-                setHealthRecords(data)
+                setHealthRecords(data);
+                setHealthRecordsParent(data);
                 console.log("Data Records: ", data)
             }
         }
