@@ -9,18 +9,18 @@ const Dashboard = ({ user }) => {
     const profileLabels = ['Unique Patient Id.', 'Date of Birth', 'Gender', 'Mobile Number', 'Address']
     const profileValues = [user.patientId, user.dob, user.gender, user.phoneNumber, user.address + ' , ' + user.state + ' , ' + user.pinCode]
     const navigate = useNavigate();
-    
+
     function ImageComponent({ base64String }) {
         const binaryString = atob(base64String.slice("data:image/png;base64,".length));
         const byteArray = new Uint8Array(binaryString.length);
         for (let i = 0; i < binaryString.length; i++) {
-          byteArray[i] = binaryString.charCodeAt(i);
+            byteArray[i] = binaryString.charCodeAt(i);
         }
         const blob = new Blob([byteArray], { type: "image/png" });
         const imageUrl = URL.createObjectURL(blob);
-      
-        return <img src={imageUrl} alt="PNG_image" className='imgPatient'/>;
-      }
+
+        return <img src={imageUrl} alt="PNG_image" className='imgPatient' />;
+    }
     //   console.log(user.passPhoto);
     return (
         <div>
@@ -29,7 +29,7 @@ const Dashboard = ({ user }) => {
                     <div className='ProfileTitle'>Welcome Back <span className='ProfileName'>{user.firstName} {user.lastName}</span></div>
                     <div className='ProfileContent'>
                         <div className='ProfilePhoto Prof-Col'>
-                        <ImageComponent base64String={user.passPhoto}/>
+                            <ImageComponent base64String={user.passPhoto} />
                         </div>
                         <div className='ProfileDetais Prof-Col'>
                             {
@@ -37,8 +37,8 @@ const Dashboard = ({ user }) => {
                             }
                         </div>
                         <div className='ProfileQR Prof-Col'>
-                        <ImageComponent base64String={user.qrCode}/>
-                        <h5>Scan Your QR to Register at Hospital</h5>
+                            <ImageComponent base64String={user.qrCode} />
+                            <h5>Scan Your QR to Register at Hospital</h5>
                         </div>
                     </div>
                 </div>

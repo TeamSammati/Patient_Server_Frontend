@@ -1,0 +1,30 @@
+.PopupPage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* min-height: 100vh; */
+    background-color: rgba(0,0,0,0.2);
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.PopupContainer{
+    position: relative;
+    margin: 100px;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background-color: #fff;
+    border-radius: 4px;
+    border-color: black;
+    border-style: inset;
+    border-width: 1px;
+}
+.PopupContainer .BtnClose{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}

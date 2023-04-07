@@ -1,7 +1,8 @@
 import React from 'react'
 import './Stylesheets/ConsentRequests.css'
 import ConsentRequest from './ConsentRequest'
-const ConsentRequests = ({ consentRequests}) => {
+// import consentRequests from '../consentRequestsData.json';
+const ConsentRequests = ({ consentRequests}) => { // { consentRequests}
   return (
     <div className='ConsentRequestsPage'>
       <div className='ConsentRequestTitle'>
