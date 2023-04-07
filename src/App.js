@@ -13,16 +13,29 @@ import ConsentRequests from './Components/ConsentRequests';
 // import RecordsPage from './Components/RecordsPage';
 // import healthRecords from './healthRecords.json';
 import RecordsComponent from './Components/RecordsComponent';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [user, setUser] = useState(null)
   const [consentRequests, setConsentRequests] = useState([])
+  const notify = () => toast.success('💥 Great, Glad to See here!', {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  })
   const loginHandler = async (loginCredentials) => {
     try {
       const userObject = await loginService.login(loginCredentials)
-      console.log("User: ",userObject)
+      console.log("User: ", userObject)
       if (userObject) {
-        setUser(userObject)
-        window.localStorage.setItem('sessionUser', JSON.stringify(userObject))
+        setUser(userObject);
+        window.localStorage.setItem('sessionUser', JSON.stringify(userObject));
+        notify();
       }
       else {
         alert("Log in failed, check username and password entered")
@@ -66,10 +79,22 @@ function App() {
           }
           <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} />} />
           {/* <Route path="/healthData" element={<RecordsPage healthRecords={healthRecords}/>} /> */}
-          <Route path="/records" element={<RecordsComponent user={user}/>} />
+          <Route path="/records" element={<RecordsComponent user={user} />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </div>
     </BrowserRouter>
   );

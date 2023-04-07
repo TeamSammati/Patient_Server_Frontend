@@ -13,7 +13,7 @@ const Register = () => {
   const [address1, setAddress1] = useState('')
   const [pin, setPIN] = useState('')
   const [state, setState] = useState(0)
-  const [passPhoto, setPassPhoto] = useState('')
+  const [passPhoto, setPassPhoto] = useState(``)
   const [uid, setUid] = useState('')
   const [uidType, setUidType] = useState(0)
   const [uName, setUName] = useState('')
@@ -332,7 +332,6 @@ const Register = () => {
                 <input
                   type='file'
                   className='InputText'
-                  value={passPhoto}
                   onChange={handleImageChange}
                 />
               </div>
