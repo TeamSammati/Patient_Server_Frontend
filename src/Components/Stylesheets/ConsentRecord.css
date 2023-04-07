@@ -1,0 +1,30 @@
+.RecordTitle{
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.MainContent{
+    background-color: azure;
+    border-radius: 6px;
+    padding: 12px 24px;
+    margin: 5px 0px;
+    pointer-events: none;
+    text-decoration-style: solid;
+    user-select: none;
+}
+.PrescriptionTitle{
+    color: darkblue;
+    margin-left: 26px;
+}
+.row{
+    margin: 5px 0px;
+}
+.col{
+    float: left;
+    width: 45%;
+    margin: 0px 10px;
+}
+.RecordComponent{
+    margin-left: 10px;
+}

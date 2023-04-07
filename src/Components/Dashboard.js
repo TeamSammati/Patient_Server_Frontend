@@ -38,7 +38,7 @@ const Dashboard = ({ user }) => {
                         </div>
                         <div className='ProfileQR Prof-Col'>
                             <ImageComponent base64String={user.qrCode} />
-                            <h5>Scan Your QR to Register at Hospital</h5>
+                            <h5 style={{marginTop:"-2px"}}>Scan Your QR to Register at Hospital</h5>
                         </div>
                     </div>
                 </div>
