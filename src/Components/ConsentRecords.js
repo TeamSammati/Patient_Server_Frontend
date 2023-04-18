@@ -1,12 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import ConsentHospital from './ConsentHospital';
+import EHRRequestService from '../Services/EHRRequestService'
+
 // import './Stylesheets/RecordsPage.css'
-const ConsentRecords = ({ healthRecords, consentResponseHandler, consentRequestId, user, otpValidation, setOtpValidation, consentValidationHandler, doctorId }) => {
+const ConsentRecords = ({consentResponseHandler, consentRequestId, user, otpValidation, setOtpValidation, consentValidationHandler, doctorId }) => {
     const [hospitalSearchValue, setHospitalSearchValue] = useState(parseInt(0));
     const [consentDataMappingDTOList, setConsentDataMappingDTOList] = useState([]);
     const [duration, setDuration] = useState(1);
     const [checked, setChecked] = useState(true);
     const [otp, setOtp] = useState('');
+    const [healthRecords, setHealthRecords] = useState([])
+  useEffect(() => {
+    async function fetchData() {
+      if (user) {
+        const data = await EHRRequestService.getMyData(user)
+        setHealthRecords(data);
+        console.log("Data Records: ", data)
+      }
+    }
+    fetchData()
+  }, [])
     const handleChange = () => {
         setChecked(!checked);
     };
@@ -47,6 +60,7 @@ const ConsentRecords = ({ healthRecords, consentResponseHandler, consentRequestI
             "doctorId" : doctorId,
             "consentDataMappingDTOList": consentDataMappingDTOList
         }
+        console.log(cr_response);
         consentResponseHandler(cr_response);
     }
     const handleValidate = (event) => {
@@ -125,7 +139,7 @@ const ConsentRecords = ({ healthRecords, consentResponseHandler, consentRequestI
                                     </form>
                                     :
                                     <form onSubmit={handleValidate}>
-                                        <input type="input" className='InputText' value={otp} onChange={(e) => { setOtp(e.target.value) }} required/>
+                                        <input type="password" className='InputText' value={otp} onChange={(e) => { setOtp(e.target.value) }} required/>
                                         <button type="submit" className='InputButton' disabled={!otpValidation}>Validate</button>
                                         <button className='InputButton' disabled={!otpValidation} onClick={()=>{setOtpValidation(false); setOtp('');}}>Reset</button>
                                     </form>

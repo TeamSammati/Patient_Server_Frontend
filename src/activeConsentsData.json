@@ -1,0 +1,26 @@
+[
+    {
+        "consentId": 1,
+        "consentRequestId": 3,
+        "patientId": 1,
+        "doctorId":1,
+        "doctorName":"Vanya Jain",
+        "consentType": 1
+    },
+    {
+        "consentId": 5,
+        "consentRequestId": 8,
+        "patientId": 1,
+        "doctorId":1,
+        "doctorName":"Vanya Jain",
+        "consentType": 0
+    },
+    {
+        "consentId": 3,
+        "consentRequestId": 6,
+        "patientId": 1,
+        "doctorId":1,
+        "doctorName":"Vanya Jain",
+        "consentType": 1
+    }
+]

@@ -1,15 +1,18 @@
-.headerPage{
+.headerPage {
     background-color: #ededed;
     font-family: Roboto;
     font-size: large;
     font-weight: 200;
     padding: 20px 10px;
 }
-.headerTitle{
+
+.headerTitle {
     text-decoration: solid;
     font-weight: bold;
+    color: navy;
 }
-.headerTextRight{
+
+.headerTextRight {
     float: right;
     background-color: #24262b;
     color: #fff;
@@ -17,11 +20,34 @@
     padding: 5px;
     margin-top: -5px;
 }
-span{
+
+span {
     float: left;
     margin-right: 10px;
     margin-top: -8px;
 }
-img{
+
+img {
     mix-blend-mode: color-burn;
+}
+
+@media screen and (max-width: 600px) {
+    /* .headerTitle {
+        white-space: pre;
+        font-size: 10px;
+    }
+    .headerTextRight{
+        white-space: pre-line;
+        float: none;
+    } */
+    .headerPage{
+        font-size: 10px;
+    }
+    .headerUser{
+        display: none;
+    }
+    .userIcon{
+        size: 5px;
+    }
+
 }

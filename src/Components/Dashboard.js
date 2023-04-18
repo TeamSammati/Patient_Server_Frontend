@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Stylesheets/Dashboard.css'
 import { useNavigate } from 'react-router-dom';
+import DashboardCards from './DashboardCards';
+import EHRRequestService from '../Services/EHRRequestService'
 // import Multiselect from 'multiselect-react-dropdown';
 
 // import passPhoto from '../image.json'
 // import qrCode from '../qr.json'
 const Dashboard = ({ user }) => {
+    const [no_hospitals, setNo_hospitals] = useState(0);
     const profileLabels = ['Unique Patient Id.', 'Date of Birth', 'Gender', 'Mobile Number', 'Address']
     const profileValues = [user.patientId, user.dob, user.gender, user.phoneNumber, user.address + ' , ' + user.state + ' , ' + user.pinCode]
     const navigate = useNavigate();
 
+    const [healthRecords, setHealthRecords] = useState([])
+
+    async function fetchData() {
+        if (user) {
+            const data = await EHRRequestService.getMyData(user)
+            setHealthRecords(data);
+            console.log("Data Records: ", data)
+        }
+    }
+    useEffect(()=>{
+        fetchData();
+    },[])
+    useEffect(()=>{
+        if(healthRecords)
+        setNo_hospitals(healthRecords.length)
+    },[healthRecords])
+
+    
+    
+    
     function ImageComponent({ base64String }) {
         const binaryString = atob(base64String.slice("data:image/png;base64,".length));
         const byteArray = new Uint8Array(binaryString.length);
@@ -21,6 +44,8 @@ const Dashboard = ({ user }) => {
 
         return <img src={imageUrl} alt="PNG_image" className='imgPatient' />;
     }
+
+
     //   console.log(user.passPhoto);
     return (
         <div>
@@ -29,7 +54,11 @@ const Dashboard = ({ user }) => {
                     <div className='ProfileTitle'>Welcome Back <span className='ProfileName'>{user.firstName} {user.lastName}</span></div>
                     <div className='ProfileContent'>
                         <div className='ProfilePhoto Prof-Col'>
-                            <ImageComponent base64String={user.passPhoto} />
+                            {
+                                (user && user.passPhoto) &&
+                                <ImageComponent base64String={user.passPhoto} />
+                            }
+                            
                         </div>
                         <div className='ProfileDetais Prof-Col'>
                             {
@@ -37,14 +66,19 @@ const Dashboard = ({ user }) => {
                             }
                         </div>
                         <div className='ProfileQR Prof-Col'>
-                            <ImageComponent base64String={user.qrCode} />
-                            <h5 style={{marginTop:"-2px"}}>Scan Your QR to Register at Hospital</h5>
+                            {
+                                (user && user.qrCode) &&
+                                <ImageComponent base64String={user.qrCode} />
+                            }
+                            
+                            <h5 style={{ marginTop: "-2px" }}>Scan Your QR to Register at Hospital</h5>
                         </div>
                     </div>
                 </div>
                 <div className='DashboardContent'>
                     <div className='HealthDataStatistics'>
-                        Health Data & Statistics
+                        <h4>Health Data & Statistics</h4>
+                        <DashboardCards no_hospitals={no_hospitals} />
                     </div>
                     <div className='ConsentsRequests'>
                         Consents & Requests

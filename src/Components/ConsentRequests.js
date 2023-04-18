@@ -1,8 +1,21 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './Stylesheets/ConsentRequests.css'
 import ConsentRequest from './ConsentRequest'
+import EHRRequestService from '../Services/EHRRequestService'
 // import consentRequests from '../consentRequestsData.json';
-const ConsentRequests = ({user, consentRequests, healthRecords}) => { // { consentRequests}
+const ConsentRequests = ({ user, consentRequests }) => { // { consentRequests}
+  const [healthRecords, setHealthRecords] = useState([])
+  //console.log(consentRequests);
+  useEffect(() => {
+    async function fetchData() {
+      if (user) {
+        const data = await EHRRequestService.getMyData(user)
+        setHealthRecords(data);
+        //console.log("Data Records: ", data)
+      }
+    }
+    fetchData()
+  }, [])
   return (
     <div className='ConsentRequestsPage'>
       <div className='ConsentRequestTitle'>
