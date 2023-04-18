@@ -13,9 +13,15 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
         try {
             const response = await consentResponseService.consentResponseDeny(cr_response)
             if (response) {
-                alert("Request Successfully Denied!", response)
-                //setOpen(false);
-                window.location.reload(true)
+                swal({
+                    title: "Operation Successfull",
+                    text: "Request Successfully Denied!",
+                    icon: "success",
+                    button: "Okay",
+                })
+                .then(()=>{
+                    window.location.reload(true)
+                });
             }
         }
         catch (exception) {
@@ -25,9 +31,12 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
     const consentResponseHandler = async (cr_response) => {
         try {
             const response = await consentResponseService.consentResponseAccept(cr_response)
-            console.log(cr_response);
+            //console.log(cr_response);
             if (response.status === 200) {
-                alert("Your consent is in Process, Please Enter OTP" + response);
+                swal({
+                    title: "Your consent is in Process, Please Enter OTP",
+                    button: "Okay",
+                });
                 setOtpValidation(true);
                 // setOpen(false);
                 //window.location.reload(true);
@@ -41,17 +50,32 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
         try {
             const response = await consentResponseService.validateConsent(cr_response)
             if(response === -99){
-                alert("Invalid OTP, Try Again");
+                swal({
+                    title: "Invalid OTP, Try Again",
+                    icon: "error",
+                    button: "Okay",
+                });
             }
             else if(response) {
-                alert("Consent Given Successfully, Your Consent Id: " + response)
-                setOpen(false);
+                swal({
+                    title: "Operation Successfull",
+                    text: "Consent Given Successfully, Your Consent Id: "+response,
+                    icon: "success",
+                    button: "Okay",
+                })
+                .then(()=>{
+                    setOpen(false);
                 setOtpValidation(false);
-                window.location.reload(true)
+                    window.location.reload(true)
+                });
             }
         }
         catch (exception) {
-            alert("Invalid Details, Try Again");
+            swal({
+                title: "Invalid Details, Try Again",
+                icon: "error",
+                button: "Okay",
+            });
         }
     }
     const handleConsentResponseAccept = (event) => {
@@ -109,7 +133,7 @@ const ConsentRequest = ({ consentRequestId, index, hospitalId, doctorId, hospita
                 <Modal open={open} onClose={() => setOpen(false)} setOpen={setOpen} closeOnOverlayClick={false}>
                     <h4 style={{textAlign:"left", color: "navy"}}>Granular Consent</h4>
                     <h5>Request: {consentRequestId} &ensp; &ensp; Doctor: {doctorId} - {doctorName}</h5>
-                    <p style={{fontStyle:"italic", fontFamily:"cursive"}}>(*) Tick your health records that can be viwed by Requested Doctor.</p>
+                    <p style={{fontStyle:"italic", fontFamily:"cursive"}}>(*) Tick your health records that can be viewed by Requested Doctor.</p>
                     <ConsentRecords healthRecords={healthRecords} 
                     consentResponseHandler={consentResponseHandler} user={user} consentRequestId={consentRequestId} setOpen={setOpen}
                     setOtpValidation={setOtpValidation} otpValidation={otpValidation} consentValidationHandler={consentValidationHandler}

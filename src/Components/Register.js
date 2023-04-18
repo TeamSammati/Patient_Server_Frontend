@@ -156,7 +156,7 @@ const Register = () => {
   const handleRegister = (event) => {
     event.preventDefault()
     const registerContent = {
-      firstName: fname, lastName: lname, phoneNumber: mobile, userName: uName, gender: gender, email: email, uidNumber: uid, uidType: uidType, state: state, address: address1, pinCode: pin, password: pwd, DOB: dob, passPhoto: passPhoto
+      firstName: fname, lastName: lname, phoneNumber: mobile, userName: uName, gender: gender, email: email, uidNumber: uid, uidType: uidType, state: state, address: address1, pinCode: pin, password: pwd, DOB: dob, passPhoto: passPhoto, role:"USER"
     }
     if (gender === 0 || state === 0 || uidType === 0) {
       alert("select All Fields and Try Again!");

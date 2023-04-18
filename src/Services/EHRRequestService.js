@@ -11,7 +11,7 @@ const getMyData = async (patient) => {
         'Authorization': `Bearer ${token}`
         }
        })
-    console.log(response)
+    //console.log(response)
     return response.data
 }
 const exportObject = { getMyData}

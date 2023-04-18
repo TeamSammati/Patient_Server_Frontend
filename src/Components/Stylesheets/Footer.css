@@ -1,12 +1,14 @@
 .footer-container{
-    max-width: 1170px;
+    /* max-width: 1170px; */
     margin: auto;
     background-color: #24262b;
+    padding: 0px 24px;
+    justify-content: center;
 }
 .footer-col ul{
     list-style: none;
 }
-.row{
+.footer-row{
     display: flex;
     flex-wrap: wrap;
 }
@@ -82,4 +84,12 @@
     transition: all 0.5s ease; */
     color: #fff;
     text-decoration: none;
+}
+@media only screen and (max-width: 800px) {
+    .footer-row{
+        display: block;
+    }
+    .footer-col{
+        width: 100%;
+    }
 }

@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import Navbar from './Components/Navbar';
 import LoginPage from './Components/LoginPage';
 import Dashboard from './Components/Dashboard';
+import ActiveConsents from './Components/ActiveConsents';
 import loginService from './Services/LoginService';
 import consentRequestService from './Services/ConsentRequestService';
 import ConsentRequests from './Components/ConsentRequests';
@@ -35,7 +36,7 @@ function App() {
       console.log("User: ", userObject)
       if (userObject) {
         setUser(userObject);
-        window.localStorage.setItem('sessionUser', JSON.stringify(userObject));
+        window.localStorage.setItem('sessionUser', JSON.stringify(userObject.patientId));
         notify();
       }
       else {
@@ -59,11 +60,26 @@ function App() {
 
   useEffect(() => {
     const sessionUser = window.localStorage.getItem('sessionUser')
-    if (sessionUser)
-      setUser(JSON.parse(sessionUser))
+    if (sessionUser){
+      const patientId = JSON.parse(sessionUser);
+      async function getUser() {
+        const response = await loginService.getUser(patientId)
+        console.log("Get User: ",response);
+        setUser(response);
+      }
+      getUser();
+    }
+      
     else
       setUser(null)
   }, [])
+  // useEffect(() => {
+  //   const sessionUser = window.localStorage.getItem('sessionUser')
+  //   if (sessionUser)
+  //     setUser(JSON.parse(sessionUser))
+  //   else
+  //     setUser(null)
+  // }, [])
   return (
     <BrowserRouter>
       <div>
@@ -81,6 +97,7 @@ function App() {
           <Route path="/consentRequests" element={<ConsentRequests consentRequests={consentRequests} user={user} healthRecords={healthRecords}/>} />
           {/* <Route path="/healthData" element={<RecordsPage healthRecords={healthRecords}/>} /> */}
           <Route path="/records" element={<RecordsComponent user={user} setHealthRecordsParent={setHealthRecords}/>} />
+          <Route path="/consents" element={<ActiveConsents user={user}/>} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
         <Footer />

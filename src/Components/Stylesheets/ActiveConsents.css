@@ -1,0 +1,71 @@
+.ActiveConsentsPage {
+    min-height: 500px;
+}
+
+.ActiveConsentsTitle {
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+
+.ActiveConsentsMessage {
+    text-align: center;
+    font-weight: bold;
+    color: brown;
+}
+
+/* .ActiveConsentsContainer {
+    background-color: #dbdedf4e;
+    border-radius: 4px;
+    padding: 12px 24px;
+    margin: 16px;
+} */
+
+/* table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+table{
+    margin: auto;
+}
+th{
+    background-color: #24262b;
+    color: #fff;
+}
+td{
+    background-color: #ededed;
+    color: black;
+    min-width: 125px;
+    text-align: center;
+    justify-content: center;
+} */
+table {
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #fff;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: center;
+    /* border-bottom: 1px solid #ddd; */
+}
+tr{
+    background-color: #fff;
+}
+tr:hover {
+    background-color: rgba(255, 127, 80, 0.207);
+}
+.ActiveConsentsTable, td{
+    background-color: #fff !important;
+}
+.ActiveConsentsContainer{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 4px;
+    padding: 12px 24px;
+    margin: 16px;
+}
