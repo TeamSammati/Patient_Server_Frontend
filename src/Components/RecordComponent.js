@@ -40,6 +40,7 @@ const RecordComponent = ({ record, visitDate, index }) => {
                             <div className='col'>Problem : {record.problem}</div>
                             <div className='col colExtra'>Treatment : {record.treatment}</div>
                         </div>
+                        <br/>
                         <h4 className='PrescriptionTitle'>Prescription</h4>
                         <div>
                             {

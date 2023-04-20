@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import AboutPage from './Components/AboutPage';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -99,6 +99,11 @@ function App() {
           <Route path="/records" element={<RecordsComponent user={user} setHealthRecordsParent={setHealthRecords}/>} />
           <Route path="/consents" element={<ActiveConsents user={user}/>} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/404" element={<div style={{ minHeight: "70vh", textAlign: "center" }}><h1>Choose the correct Path</h1><hr /><br /><p>Error <br /> <strong style={{ fontSize: "100px" }}>404</strong> <br />Page Not Found!</p></div>} />
+          {
+            (user) &&
+            (window.location.href !== '/') && (window.location.href !== '/consentRequests') && (window.location.href !== '/records') && (window.location.href !== '/consents') && (window.location.href !== '/about') && <Route path="*" element={<Navigate replace to="/404" />} />
+          }
         </Routes>
         <Footer />
         <ToastContainer

@@ -15,6 +15,7 @@
 }
 .PrescriptionTitle{
     color: darkblue;
+    white-space: pre;
     margin-left: 75px;
 }
 .row{
@@ -28,22 +29,3 @@
 .RecordComponent{
     margin-left: 10px;
 }
-@media screen and (max-width: 600px) {
-    
-    table{
-        /* width: 100%; */
-        /* display: block; */
-        overflow: hidden;
-    }
-  .MainContent{
-    display: block;
-    width: 100%;
-  }
-  .row{
-    display: block;
-    margin: 0;
-    /* width: 100%; */
-  }
-    /* Hide table headers (but not display: none;, for accessibility) */
-    
-  }
