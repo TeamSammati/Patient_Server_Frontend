@@ -1,5 +1,6 @@
 // All the Service URL's are to be included here...
-let ipAddress = "172.16.137.28"
+let ipAddress = "13.232.72.238"
+// let ipAddress = "172.16.137.28"
 let portNumber = 6989;
 const configURL = {
     loginURL: `http://${ipAddress}:${portNumber}/api/auth/authenticate`,

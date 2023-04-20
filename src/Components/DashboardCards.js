@@ -2,22 +2,25 @@ import React from 'react'
 import './Stylesheets/DashboardCards.css'
 import hospital1 from '../Images/hospital(1).jpeg';
 import hospital2 from '../Images/hospital(2).jpeg';
+import { useNavigate } from 'react-router-dom';
 const DashboardCards = ({no_hospitals}) => {
+    const navigate = useNavigate();
+
     return (
         <div className='cardsPage'>
             <div className="main">
                 <ul className="cards">
-                    <li className="cards_item">
+                    <li className="cards_item" style={{textAlign:"center"}}>
                         <div className="card">
                             <div className="card_image"><img src={hospital1}/></div>
                             <div className="card_content">
                                 <h2 className="card_title">Hospitals Registered</h2>
                                 <p className="card_text" style={{fontSize:"50px", textAlign:"center"}}>{no_hospitals}</p>
-                                <button className="btn card_btn">View Hospitals</button>
+                                <button className="btn card_btn" onClick={() => { navigate('/records'); }}>View Hospitals</button>
                             </div>
                         </div>
                     </li>
-                    <li className="cards_item">
+                    {/* <li className="cards_item">
                         <div className="card">
                             <div className="card_image"><img src={hospital2}/></div>
                             <div className="card_content">
@@ -26,7 +29,7 @@ const DashboardCards = ({no_hospitals}) => {
                                 <button className="btn card_btn">View Health Records</button>
                             </div>
                         </div>
-                    </li>
+                    </li> */}
                     
                 </ul>
             </div>
